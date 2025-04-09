@@ -1,0 +1,327 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Testing Instructions | Earth Science Explorer</title>
+    <link rel="stylesheet" href="css/style.css">
+    <style>
+        .instructions-container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: white;
+            border-radius: 12px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+        }
+        
+        .instruction-section {
+            margin-bottom: 30px;
+            padding-bottom: 20px;
+            border-bottom: 1px solid #eee;
+        }
+        
+        .instruction-section:last-child {
+            border-bottom: none;
+        }
+        
+        .instruction-step {
+            margin-bottom: 15px;
+            padding-left: 20px;
+            position: relative;
+        }
+        
+        .instruction-step:before {
+            content: "•";
+            position: absolute;
+            left: 0;
+            color: #FF5722;
+            font-weight: bold;
+        }
+        
+        .code-block {
+            background-color: #f5f5f5;
+            padding: 15px;
+            border-radius: 8px;
+            font-family: monospace;
+            overflow-x: auto;
+            margin: 15px 0;
+        }
+        
+        .note {
+            background-color: #FFF3E0;
+            padding: 15px;
+            border-left: 4px solid #FF9800;
+            margin: 15px 0;
+        }
+        
+        .method-card {
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            padding: 20px;
+            margin-bottom: 20px;
+            background-color: #f9f9f9;
+        }
+        
+        .method-card h3 {
+            margin-top: 0;
+            color: #FF5722;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="header-content">
+            <h1 class="site-title">Earth Science Explorer</h1>
+            <p class="site-description">Interactive learning for 8th grade Earth Science</p>
+        </div>
+    </header>
+
+    <nav>
+        <div class="nav-container">
+            <a href="index.html" class="logo">EarthSci</a>
+            <ul class="nav-links">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="topics/geologic-history/index.html">Geologic History</a></li>
+                <li><a href="topics/rock-correlation/index.html">Rock Correlation</a></li>
+                <li><a href="topics/radioactive-dating/index.html">Radioactive Dating</a></li>
+                <li><a href="topics/geologic-time-scale/index.html">Geologic Time Scale</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <main class="container">
+        <div class="instructions-container">
+            <h1>Testing Your Earth Science Website</h1>
+            <p>This guide provides multiple methods to test your Earth Science tutor website outside of GitHub Pages.</p>
+            
+            <div class="instruction-section">
+                <h2>Method 1: Local Testing (Simplest)</h2>
+                <div class="method-card">
+                    <h3>Testing Directly from Files</h3>
+                    <p>This is the simplest method but has some limitations with JavaScript functionality.</p>
+                    
+                    <div class="instruction-step">
+                        <p>Extract the <code>earth-science-tutor-final-fixed.zip</code> file to a folder on your computer.</p>
+                    </div>
+                    
+                    <div class="instruction-step">
+                        <p>Open the extracted folder and double-click on <code>index.html</code> to open it in your web browser.</p>
+                    </div>
+                    
+                    <div class="instruction-step">
+                        <p>Navigate through the website to test basic functionality.</p>
+                    </div>
+                    
+                    <div class="note">
+                        <p><strong>Note:</strong> Some JavaScript features might not work correctly when opening files directly due to browser security restrictions. If you encounter issues, try one of the other methods below.</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="instruction-section">
+                <h2>Method 2: Local Web Server (Recommended)</h2>
+                <div class="method-card">
+                    <h3>Using Python's Built-in HTTP Server</h3>
+                    <p>This method creates a local web server that avoids most browser security restrictions.</p>
+                    
+                    <div class="instruction-step">
+                        <p>Extract the <code>earth-science-tutor-final-fixed.zip</code> file to a folder on your computer.</p>
+                    </div>
+                    
+                    <div class="instruction-step">
+                        <p>Open a command prompt or terminal window.</p>
+                    </div>
+                    
+                    <div class="instruction-step">
+                        <p>Navigate to the extracted folder using the <code>cd</code> command.</p>
+                        <div class="code-block">
+                            cd path/to/earth-science-tutor
+                        </div>
+                    </div>
+                    
+                    <div class="instruction-step">
+                        <p>Start a Python HTTP server (Python must be installed on your computer):</p>
+                        <div class="code-block">
+                            # For Python 3
+                            python -m http.server 8000
+                            
+                            # For Python 2
+                            python -m SimpleHTTPServer 8000
+                        </div>
+                    </div>
+                    
+                    <div class="instruction-step">
+                        <p>Open your web browser and go to: <code>http://localhost:8000</code></p>
+                    </div>
+                    
+                    <div class="instruction-step">
+                        <p>To stop the server when you're done testing, go back to the command prompt and press <code>Ctrl+C</code>.</p>
+                    </div>
+                </div>
+                
+                <div class="method-card">
+                    <h3>Using Node.js HTTP Server</h3>
+                    <p>An alternative if you have Node.js installed.</p>
+                    
+                    <div class="instruction-step">
+                        <p>Install the <code>http-server</code> package globally (if not already installed):</p>
+                        <div class="code-block">
+                            npm install -g http-server
+                        </div>
+                    </div>
+                    
+                    <div class="instruction-step">
+                        <p>Navigate to the extracted folder in your command prompt or terminal:</p>
+                        <div class="code-block">
+                            cd path/to/earth-science-tutor
+                        </div>
+                    </div>
+                    
+                    <div class="instruction-step">
+                        <p>Start the HTTP server:</p>
+                        <div class="code-block">
+                            http-server -p 8000
+                        </div>
+                    </div>
+                    
+                    <div class="instruction-step">
+                        <p>Open your web browser and go to: <code>http://localhost:8000</code></p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="instruction-section">
+                <h2>Method 3: Online Testing Services (No Installation Required)</h2>
+                <div class="method-card">
+                    <h3>Using Netlify Drop</h3>
+                    <p>This method allows you to quickly deploy your website to a temporary URL without any account setup.</p>
+                    
+                    <div class="instruction-step">
+                        <p>Extract the <code>earth-science-tutor-final-fixed.zip</code> file to a folder on your computer.</p>
+                    </div>
+                    
+                    <div class="instruction-step">
+                        <p>Visit <a href="https://app.netlify.com/drop" target="_blank">https://app.netlify.com/drop</a> in your web browser.</p>
+                    </div>
+                    
+                    <div class="instruction-step">
+                        <p>Drag and drop the entire extracted folder onto the drop zone on the Netlify page.</p>
+                    </div>
+                    
+                    <div class="instruction-step">
+                        <p>Wait for the upload to complete. Netlify will automatically deploy your site and provide you with a temporary URL.</p>
+                    </div>
+                    
+                    <div class="instruction-step">
+                        <p>Use the provided URL to test your website. The site will remain available at this URL for a limited time.</p>
+                    </div>
+                    
+                    <div class="note">
+                        <p><strong>Note:</strong> This is a great option for sharing the site with others for testing without having to deploy to GitHub Pages yet.</p>
+                    </div>
+                </div>
+                
+                <div class="method-card">
+                    <h3>Using CodeSandbox</h3>
+                    <p>This method is useful for testing and making quick edits online.</p>
+                    
+                    <div class="instruction-step">
+                        <p>Visit <a href="https://codesandbox.io/" target="_blank">https://codesandbox.io/</a> and create a new static sandbox.</p>
+                    </div>
+                    
+                    <div class="instruction-step">
+                        <p>Extract the <code>earth-science-tutor-final-fixed.zip</code> file on your computer.</p>
+                    </div>
+                    
+                    <div class="instruction-step">
+                        <p>Upload the files to CodeSandbox by dragging them into the file explorer panel.</p>
+                    </div>
+                    
+                    <div class="instruction-step">
+                        <p>CodeSandbox will automatically serve your website and provide a preview.</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="instruction-section">
+                <h2>Troubleshooting Tips</h2>
+                
+                <div class="instruction-step">
+                    <p><strong>Check the browser console for errors:</strong> Press F12 in most browsers to open developer tools, then click on the "Console" tab to see any JavaScript errors.</p>
+                </div>
+                
+                <div class="instruction-step">
+                    <p><strong>Clear browser cache:</strong> Sometimes browsers cache old versions of files. Try clearing your cache (Ctrl+Shift+Delete in most browsers) or use incognito/private browsing mode.</p>
+                </div>
+                
+                <div class="instruction-step">
+                    <p><strong>Test in different browsers:</strong> If something doesn't work in one browser, try another (Chrome, Firefox, Edge, etc.).</p>
+                </div>
+                
+                <div class="instruction-step">
+                    <p><strong>Check file paths:</strong> Make sure all file paths in HTML, CSS, and JavaScript files are correct. Paths are case-sensitive on some servers.</p>
+                </div>
+                
+                <div class="instruction-step">
+                    <p><strong>Look for specific game errors:</strong> If games aren't loading, check the browser console for specific error messages related to the game initialization.</p>
+                </div>
+            </div>
+            
+            <div class="instruction-section">
+                <h2>Deploying to GitHub Pages (Final Step)</h2>
+                
+                <div class="instruction-step">
+                    <p>Create a new repository named <code>wrightreyesfuture.github.io</code> on GitHub (if not already created).</p>
+                </div>
+                
+                <div class="instruction-step">
+                    <p>Upload all files from the extracted folder to this repository.</p>
+                </div>
+                
+                <div class="instruction-step">
+                    <p>GitHub will automatically deploy your site to <code>https://wrightreyesfuture.github.io</code>.</p>
+                </div>
+                
+                <div class="instruction-step">
+                    <p>It may take a few minutes for changes to appear on the live site.</p>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <footer>
+        <div class="footer-content">
+            <div class="footer-column">
+                <h3>Earth Science Explorer</h3>
+                <p>Interactive learning for 8th grade Earth Science students.</p>
+            </div>
+            
+            <div class="footer-column">
+                <h3>Topics</h3>
+                <ul class="footer-links">
+                    <li><a href="topics/geologic-history/index.html">Geologic History</a></li>
+                    <li><a href="topics/rock-correlation/index.html">Rock Correlation</a></li>
+                    <li><a href="topics/radioactive-dating/index.html">Radioactive Dating</a></li>
+                    <li><a href="topics/geologic-time-scale/index.html">Geologic Time Scale</a></li>
+                </ul>
+            </div>
+            
+            <div class="footer-column">
+                <h3>Resources</h3>
+                <ul class="footer-links">
+                    <li><a href="#">Glossary</a></li>
+                    <li><a href="#">Study Guides</a></li>
+                    <li><a href="#">Additional Resources</a></li>
+                </ul>
+            </div>
+        </div>
+        
+        <div class="copyright">
+            <p>&copy; 2025 Earth Science Explorer. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script src="js/main.js"></script>
+</body>
+</html>

@@ -1,0 +1,589 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Geologic Time Scale | Earth Science Explorer</title>
+    <link rel="stylesheet" href="../../css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        .pdf-content {
+            max-width: 100%;
+            margin: 20px 0;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+        }
+        
+        .pdf-content img {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+        
+        .content-section {
+            background-color: white;
+            border-radius: 12px;
+            padding: 30px;
+            margin-bottom: 30px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+        }
+        
+        .section-nav {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 20px;
+            padding-top: 20px;
+            border-top: 1px solid #eee;
+        }
+        
+        .progress-tracker {
+            background-color: white;
+            border-radius: 12px;
+            padding: 20px;
+            margin-bottom: 30px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+        }
+        
+        .progress-bar {
+            height: 10px;
+            background-color: #f0f0f0;
+            border-radius: 5px;
+            margin: 10px 0;
+            overflow: hidden;
+        }
+        
+        .progress-fill {
+            height: 100%;
+            background: linear-gradient(90deg, var(--primary-color), var(--accent-color));
+            width: 25%; /* Will be updated by JavaScript */
+            border-radius: 5px;
+            transition: width 0.5s ease;
+        }
+        
+        .tab-container {
+            margin-bottom: 30px;
+        }
+        
+        .tabs {
+            display: flex;
+            border-bottom: 2px solid #f0f0f0;
+        }
+        
+        .tab {
+            padding: 10px 20px;
+            cursor: pointer;
+            border-bottom: 3px solid transparent;
+            font-weight: 600;
+            transition: all 0.3s ease;
+        }
+        
+        .tab.active {
+            border-bottom-color: var(--primary-color);
+            color: var(--primary-color);
+        }
+        
+        .tab-content {
+            display: none;
+            padding: 20px 0;
+        }
+        
+        .tab-content.active {
+            display: block;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="header-content">
+            <h1 class="site-title">Earth Science Explorer</h1>
+            <p class="site-description">Interactive learning for 8th grade Earth Science</p>
+        </div>
+    </header>
+
+    <nav>
+        <div class="nav-container">
+            <a href="../../index.html" class="logo">EarthSci</a>
+            <ul class="nav-links">
+                <li><a href="../../index.html">Home</a></li>
+                <li><a href="../geologic-history/index.html">Geologic History</a></li>
+                <li><a href="../rock-correlation/index.html">Rock Correlation</a></li>
+                <li><a href="../radioactive-dating/index.html">Radioactive Dating</a></li>
+                <li><a href="../geologic-time-scale/index.html">Geologic Time Scale</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <div class="topic-header">
+        <h1>Geologic Time Scale</h1>
+        <p>Explore the major divisions of Earth's 4.6 billion year history</p>
+    </div>
+
+    <main class="container">
+        <div class="progress-tracker">
+            <h3>Your Progress</h3>
+            <div class="progress-bar">
+                <div class="progress-fill" id="progress-fill"></div>
+            </div>
+            <p id="progress-text">0% Complete</p>
+        </div>
+        
+        <div class="tab-container">
+            <div class="tabs">
+                <div class="tab active" data-tab="learn">Learn</div>
+                <div class="tab" data-tab="practice">Practice</div>
+                <div class="tab" data-tab="quiz">Quiz</div>
+                <div class="tab" data-tab="game">Game</div>
+            </div>
+            
+            <!-- LEARN TAB -->
+            <div class="tab-content active" id="learn-content">
+                <div class="content-section">
+                    <h2>The Geologic Time Scale</h2>
+                    <p>Learn about the major divisions of Earth's 4.6 billion year history and the significant events that occurred during each time period.</p>
+                    
+                    <div class="pdf-content">
+                        <img src="../../images/pdf/page-05.png" alt="Geologic Time Scale Notes Page 1">
+                    </div>
+                    
+                    <div class="pdf-content">
+                        <img src="../../images/pdf/page-06.png" alt="Geologic Time Scale Notes Page 2">
+                    </div>
+                    
+                    <div class="section-nav">
+                        <button class="btn" onclick="markSectionComplete('learn')">Mark as Complete</button>
+                        <button class="btn btn-secondary" onclick="switchTab('practice')">Continue to Practice</button>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- PRACTICE TAB -->
+            <div class="tab-content" id="practice-content">
+                <div class="content-section">
+                    <h2>Practice Activities</h2>
+                    <p>Apply your knowledge of the geologic time scale with these practice activities.</p>
+                    
+                    <div class="interactive-diagram">
+                        <img src="../../images/pdf/page-10.png" alt="Geologic Time Scale Practice Page 1">
+                        <div class="hotspot" style="top: 20%; left: 50%;" data-info="info-1"></div>
+                        <div class="hotspot" style="top: 40%; left: 30%;" data-info="info-2"></div>
+                        <div class="hotspot" style="top: 60%; left: 70%;" data-info="info-3"></div>
+                        
+                        <div id="info-1" class="info-panel">
+                            <h4>Eon</h4>
+                            <p>The largest division of geologic time, consisting of two or more eras.</p>
+                        </div>
+                        
+                        <div id="info-2" class="info-panel">
+                            <h4>Era</h4>
+                            <p>A division of geologic time that is smaller than an eon but larger than a period.</p>
+                        </div>
+                        
+                        <div id="info-3" class="info-panel">
+                            <h4>Period</h4>
+                            <p>A division of geologic time that is smaller than an era but larger than an epoch.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="flashcard-container">
+                        <h3>Review Flashcards</h3>
+                        
+                        <div class="flashcard">
+                            <div class="flashcard-front">
+                                <h4>Precambrian</h4>
+                                <p>Click to reveal information</p>
+                            </div>
+                            <div class="flashcard-back">
+                                <p>The earliest part of Earth's history, from the formation of the planet to the beginning of the Cambrian Period (4.6 billion to 541 million years ago).</p>
+                            </div>
+                        </div>
+                        
+                        <div class="flashcard">
+                            <div class="flashcard-front">
+                                <h4>Paleozoic Era</h4>
+                                <p>Click to reveal information</p>
+                            </div>
+                            <div class="flashcard-back">
+                                <p>The era from 541 to 252 million years ago, known for the development of fish, amphibians, reptiles, and the first forests.</p>
+                            </div>
+                        </div>
+                        
+                        <div class="flashcard">
+                            <div class="flashcard-front">
+                                <h4>Mesozoic Era</h4>
+                                <p>Click to reveal information</p>
+                            </div>
+                            <div class="flashcard-back">
+                                <p>The era from 252 to 66 million years ago, known as the "Age of Dinosaurs" and saw the first birds and mammals.</p>
+                            </div>
+                        </div>
+                        
+                        <div class="flashcard">
+                            <div class="flashcard-front">
+                                <h4>Cenozoic Era</h4>
+                                <p>Click to reveal information</p>
+                            </div>
+                            <div class="flashcard-back">
+                                <p>The current era, from 66 million years ago to the present, known as the "Age of Mammals" and includes the evolution of humans.</p>
+                            </div>
+                        </div>
+                        
+                        <div class="card-navigation">
+                            <button class="btn prev-card">Previous</button>
+                            <span class="card-counter">1/4</span>
+                            <button class="btn next-card">Next</button>
+                        </div>
+                    </div>
+                    
+                    <div class="section-nav">
+                        <button class="btn" onclick="markSectionComplete('practice')">Mark as Complete</button>
+                        <button class="btn btn-secondary" onclick="switchTab('quiz')">Continue to Quiz</button>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- QUIZ TAB -->
+            <div class="tab-content" id="quiz-content">
+                <div class="content-section">
+                    <h2>Test Your Knowledge</h2>
+                    <p>Answer these questions to test your understanding of the geologic time scale.</p>
+                    
+                    <div class="quiz-container">
+                        <div class="quiz-question" data-correct="c">
+                            <p>1. Which era is known as the "Age of Dinosaurs"?</p>
+                            <div class="quiz-options">
+                                <label>
+                                    <input type="radio" name="q1" value="a">
+                                    Cenozoic
+                                </label>
+                                <label>
+                                    <input type="radio" name="q1" value="b">
+                                    Paleozoic
+                                </label>
+                                <label>
+                                    <input type="radio" name="q1" value="c">
+                                    Mesozoic
+                                </label>
+                                <label>
+                                    <input type="radio" name="q1" value="d">
+                                    Precambrian
+                                </label>
+                            </div>
+                        </div>
+                        
+                        <div class="quiz-question" data-correct="a">
+                            <p>2. What is the correct order of geologic time divisions from largest to smallest?</p>
+                            <div class="quiz-options">
+                                <label>
+                                    <input type="radio" name="q2" value="a">
+                                    Eon, Era, Period, Epoch
+                                </label>
+                                <label>
+                                    <input type="radio" name="q2" value="b">
+                                    Era, Eon, Period, Epoch
+                                </label>
+                                <label>
+                                    <input type="radio" name="q2" value="c">
+                                    Epoch, Period, Era, Eon
+                                </label>
+                                <label>
+                                    <input type="radio" name="q2" value="d">
+                                    Period, Era, Eon, Epoch
+                                </label>
+                            </div>
+                        </div>
+                        
+                        <div class="quiz-question" data-correct="b">
+                            <p>3. Which of the following events occurred during the Paleozoic Era?</p>
+                            <div class="quiz-options">
+                                <label>
+                                    <input type="radio" name="q3" value="a">
+                                    Extinction of the dinosaurs
+                                </label>
+                                <label>
+                                    <input type="radio" name="q3" value="b">
+                                    Development of the first forests
+                                </label>
+                                <label>
+                                    <input type="radio" name="q3" value="c">
+                                    Evolution of humans
+                                </label>
+                                <label>
+                                    <input type="radio" name="q3" value="d">
+                                    Formation of Earth
+                                </label>
+                            </div>
+                        </div>
+                        
+                        <div class="quiz-question" data-correct="d">
+                            <p>4. What major event marks the end of the Mesozoic Era and the beginning of the Cenozoic Era?</p>
+                            <div class="quiz-options">
+                                <label>
+                                    <input type="radio" name="q4" value="a">
+                                    The Great Oxygenation Event
+                                </label>
+                                <label>
+                                    <input type="radio" name="q4" value="b">
+                                    The formation of Pangaea
+                                </label>
+                                <label>
+                                    <input type="radio" name="q4" value="c">
+                                    The Permian-Triassic extinction
+                                </label>
+                                <label>
+                                    <input type="radio" name="q4" value="d">
+                                    The Cretaceous-Paleogene extinction (asteroid impact)
+                                </label>
+                            </div>
+                        </div>
+                        
+                        <button class="btn quiz-submit">Submit Answers</button>
+                        
+                        <div class="quiz-results"></div>
+                    </div>
+                    
+                    <div class="section-nav">
+                        <button class="btn" onclick="markSectionComplete('quiz')">Mark as Complete</button>
+                        <button class="btn btn-secondary" onclick="switchTab('game')">Continue to Game</button>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- GAME TAB -->
+            <div class="tab-content" id="game-content">
+                <div class="content-section">
+                    <h2>Geologic Timeline Challenge</h2>
+                    <p>Test your knowledge of Earth's history by placing major events and periods in the correct order on the geologic timeline.</p>
+                    
+                    <div id="timeline-game" class="game-container">
+                        <!-- Game content will be loaded by JavaScript -->
+                        <p>Loading game...</p>
+                    </div>
+                    
+                    <div class="section-nav">
+                        <button class="btn" onclick="markSectionComplete('game')">Mark as Complete</button>
+                        <button class="btn btn-secondary" onclick="window.location.href='../../index.html'">Return to Home</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <footer>
+        <div class="footer-content">
+            <div class="footer-column">
+                <h3>Earth Science Explorer</h3>
+                <p>An interactive learning platform for 8th grade Earth Science students.</p>
+            </div>
+            <div class="footer-column">
+                <h3>Quick Links</h3>
+                <ul class="footer-links">
+                    <li><a href="../../index.html">Home</a></li>
+                    <li><a href="../geologic-history/index.html">Geologic History</a></li>
+                    <li><a href="../rock-correlation/index.html">Rock Correlation</a></li>
+                    <li><a href="../radioactive-dating/index.html">Radioactive Dating</a></li>
+                    <li><a href="../geologic-time-scale/index.html">Geologic Time Scale</a></li>
+                </ul>
+            </div>
+            <div class="footer-column">
+                <h3>Resources</h3>
+                <ul class="footer-links">
+                    <li><a href="#">Study Tips</a></li>
+                    <li><a href="#">Glossary</a></li>
+                    <li><a href="#">Reference Materials</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="copyright">
+            <p>&copy; 2025 Earth Science Explorer. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script src="../../js/main.js"></script>
+    <script src="../../games/timeline-game.js"></script>
+    <script>
+        // Initialize the Timeline Game when the page loads
+        document.addEventListener('DOMContentLoaded', function() {
+            const gameContainer = document.getElementById('timeline-game');
+            if (gameContainer) {
+                initializeTimelineGame(gameContainer);
+            }
+            
+            // Initialize tabs
+            const tabs = document.querySelectorAll('.tab');
+            tabs.forEach(tab => {
+                tab.addEventListener('click', function() {
+                    const tabId = this.getAttribute('data-tab');
+                    switchTab(tabId);
+                });
+            });
+            
+            // Initialize flashcards
+            initializeFlashcards();
+            
+            // Load progress from localStorage
+            loadProgress();
+        });
+        
+        // Explicitly define the switchTab function in this file
+        function switchTab(tabId) {
+            console.log('Switching to tab:', tabId);
+            
+            // Hide all tab contents
+            const tabContents = document.querySelectorAll('.tab-content');
+            tabContents.forEach(content => {
+                content.classList.remove('active');
+            });
+            
+            // Deactivate all tabs
+            const tabs = document.querySelectorAll('.tab');
+            tabs.forEach(tab => {
+                tab.classList.remove('active');
+            });
+            
+            // Activate selected tab and content
+            const selectedContent = document.getElementById(`${tabId}-content`);
+            const selectedTab = document.querySelector(`.tab[data-tab="${tabId}"]`);
+            
+            if (selectedContent) {
+                selectedContent.classList.add('active');
+            }
+            
+            if (selectedTab) {
+                selectedTab.classList.add('active');
+            }
+            
+            // Scroll to top of content
+            window.scrollTo({
+                top: document.querySelector('.tab-container').offsetTop - 100,
+                behavior: 'smooth'
+            });
+        }
+        
+        // Initialize flashcards functionality
+        function initializeFlashcards() {
+            const flashcardContainers = document.querySelectorAll('.flashcard-container');
+            
+            if (flashcardContainers.length === 0) return;
+            
+            flashcardContainers.forEach(container => {
+                const cards = container.querySelectorAll('.flashcard');
+                const nextBtn = container.querySelector('.next-card');
+                const prevBtn = container.querySelector('.prev-card');
+                let currentIndex = 0;
+                
+                // Show only the first card initially
+                updateCardDisplay();
+                
+                // Flip card on click
+                cards.forEach(card => {
+                    card.addEventListener('click', function() {
+                        this.classList.toggle('flipped');
+                    });
+                });
+                
+                // Next button functionality
+                if (nextBtn) {
+                    nextBtn.addEventListener('click', function() {
+                        currentIndex = (currentIndex + 1) % cards.length;
+                        updateCardDisplay();
+                    });
+                }
+                
+                // Previous button functionality
+                if (prevBtn) {
+                    prevBtn.addEventListener('click', function() {
+                        currentIndex = (currentIndex - 1 + cards.length) % cards.length;
+                        updateCardDisplay();
+                    });
+                }
+                
+                function updateCardDisplay() {
+                    cards.forEach((card, index) => {
+                        if (index === currentIndex) {
+                            card.style.display = 'block';
+                            card.classList.remove('flipped');
+                        } else {
+                            card.style.display = 'none';
+                        }
+                    });
+                    
+                    // Update counter if it exists
+                    const counter = container.querySelector('.card-counter');
+                    if (counter) {
+                        counter.textContent = `${currentIndex + 1}/${cards.length}`;
+                    }
+                }
+            });
+        }
+        
+        // Progress tracking
+        function markSectionComplete(section) {
+            // Get current progress from localStorage
+            let progress = JSON.parse(localStorage.getItem('earthScienceProgress')) || {};
+            
+            // Initialize topic progress if not exists
+            if (!progress.geologicTimeScale) {
+                progress.geologicTimeScale = {
+                    learn: false,
+                    practice: false,
+                    quiz: false,
+                    game: false
+                };
+            }
+            
+            // Mark section as complete
+            progress.geologicTimeScale[section] = true;
+            
+            // Save to localStorage
+            localStorage.setItem('earthScienceProgress', JSON.stringify(progress));
+            
+            // Update progress display
+            updateProgressDisplay(progress.geologicTimeScale);
+            
+            // Show confirmation
+            alert(`${section.charAt(0).toUpperCase() + section.slice(1)} section marked as complete!`);
+        }
+        
+        function loadProgress() {
+            // Get progress from localStorage
+            let progress = JSON.parse(localStorage.getItem('earthScienceProgress')) || {};
+            
+            // Initialize if not exists
+            if (!progress.geologicTimeScale) {
+                progress.geologicTimeScale = {
+                    learn: false,
+                    practice: false,
+                    quiz: false,
+                    game: false
+                };
+                localStorage.setItem('earthScienceProgress', JSON.stringify(progress));
+            }
+            
+            // Update progress display
+            updateProgressDisplay(progress.geologicTimeScale);
+        }
+        
+        function updateProgressDisplay(topicProgress) {
+            // Calculate percentage
+            const sections = ['learn', 'practice', 'quiz', 'game'];
+            const completedSections = sections.filter(section => topicProgress[section]).length;
+            const percentage = Math.round((completedSections / sections.length) * 100);
+            
+            // Update progress bar
+            const progressFill = document.getElementById('progress-fill');
+            if (progressFill) {
+                progressFill.style.width = `${percentage}%`;
+            }
+            
+            // Update text
+            const progressText = document.getElementById('progress-text');
+            if (progressText) {
+                progressText.textContent = `${percentage}% Complete`;
+            }
+        }
+    </script>
+</body>
+</html>

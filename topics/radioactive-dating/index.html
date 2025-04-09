@@ -1,0 +1,589 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Radioactive Dating | Earth Science Explorer</title>
+    <link rel="stylesheet" href="../../css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        .pdf-content {
+            max-width: 100%;
+            margin: 20px 0;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+        }
+        
+        .pdf-content img {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+        
+        .content-section {
+            background-color: white;
+            border-radius: 12px;
+            padding: 30px;
+            margin-bottom: 30px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+        }
+        
+        .section-nav {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 20px;
+            padding-top: 20px;
+            border-top: 1px solid #eee;
+        }
+        
+        .progress-tracker {
+            background-color: white;
+            border-radius: 12px;
+            padding: 20px;
+            margin-bottom: 30px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+        }
+        
+        .progress-bar {
+            height: 10px;
+            background-color: #f0f0f0;
+            border-radius: 5px;
+            margin: 10px 0;
+            overflow: hidden;
+        }
+        
+        .progress-fill {
+            height: 100%;
+            background: linear-gradient(90deg, var(--primary-color), var(--accent-color));
+            width: 25%; /* Will be updated by JavaScript */
+            border-radius: 5px;
+            transition: width 0.5s ease;
+        }
+        
+        .tab-container {
+            margin-bottom: 30px;
+        }
+        
+        .tabs {
+            display: flex;
+            border-bottom: 2px solid #f0f0f0;
+        }
+        
+        .tab {
+            padding: 10px 20px;
+            cursor: pointer;
+            border-bottom: 3px solid transparent;
+            font-weight: 600;
+            transition: all 0.3s ease;
+        }
+        
+        .tab.active {
+            border-bottom-color: var(--primary-color);
+            color: var(--primary-color);
+        }
+        
+        .tab-content {
+            display: none;
+            padding: 20px 0;
+        }
+        
+        .tab-content.active {
+            display: block;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="header-content">
+            <h1 class="site-title">Earth Science Explorer</h1>
+            <p class="site-description">Interactive learning for 8th grade Earth Science</p>
+        </div>
+    </header>
+
+    <nav>
+        <div class="nav-container">
+            <a href="../../index.html" class="logo">EarthSci</a>
+            <ul class="nav-links">
+                <li><a href="../../index.html">Home</a></li>
+                <li><a href="../geologic-history/index.html">Geologic History</a></li>
+                <li><a href="../rock-correlation/index.html">Rock Correlation</a></li>
+                <li><a href="../radioactive-dating/index.html">Radioactive Dating</a></li>
+                <li><a href="../geologic-time-scale/index.html">Geologic Time Scale</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <div class="topic-header">
+        <h1>Radioactive Dating</h1>
+        <p>Learn how scientists determine the absolute age of rocks and fossils</p>
+    </div>
+
+    <main class="container">
+        <div class="progress-tracker">
+            <h3>Your Progress</h3>
+            <div class="progress-bar">
+                <div class="progress-fill" id="progress-fill"></div>
+            </div>
+            <p id="progress-text">0% Complete</p>
+        </div>
+        
+        <div class="tab-container">
+            <div class="tabs">
+                <div class="tab active" data-tab="learn">Learn</div>
+                <div class="tab" data-tab="practice">Practice</div>
+                <div class="tab" data-tab="quiz">Quiz</div>
+                <div class="tab" data-tab="game">Game</div>
+            </div>
+            
+            <!-- LEARN TAB -->
+            <div class="tab-content active" id="learn-content">
+                <div class="content-section">
+                    <h2>Radioactive Dating and Decay</h2>
+                    <p>Learn how scientists use radioactive isotopes to determine the absolute age of rocks and fossils.</p>
+                    
+                    <div class="pdf-content">
+                        <img src="../../images/pdf/page-07.png" alt="Radioactive Dating Notes Page 1">
+                    </div>
+                    
+                    <div class="pdf-content">
+                        <img src="../../images/pdf/page-08.png" alt="Radioactive Dating Notes Page 2">
+                    </div>
+                    
+                    <div class="section-nav">
+                        <button class="btn" onclick="markSectionComplete('learn')">Mark as Complete</button>
+                        <button class="btn btn-secondary" onclick="switchTab('practice')">Continue to Practice</button>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- PRACTICE TAB -->
+            <div class="tab-content" id="practice-content">
+                <div class="content-section">
+                    <h2>Practice Activities</h2>
+                    <p>Apply your knowledge of radioactive dating and decay with these practice activities.</p>
+                    
+                    <div class="interactive-diagram">
+                        <img src="../../images/pdf/page-09.png" alt="Radioactive Dating Practice Page">
+                        <div class="hotspot" style="top: 20%; left: 50%;" data-info="info-1"></div>
+                        <div class="hotspot" style="top: 40%; left: 30%;" data-info="info-2"></div>
+                        <div class="hotspot" style="top: 60%; left: 70%;" data-info="info-3"></div>
+                        
+                        <div id="info-1" class="info-panel">
+                            <h4>Half-Life</h4>
+                            <p>The time it takes for half of the atoms in a radioactive isotope to decay into a stable form.</p>
+                        </div>
+                        
+                        <div id="info-2" class="info-panel">
+                            <h4>Parent Isotope</h4>
+                            <p>The original radioactive isotope that decays over time.</p>
+                        </div>
+                        
+                        <div id="info-3" class="info-panel">
+                            <h4>Daughter Isotope</h4>
+                            <p>The isotope formed when a radioactive parent isotope decays.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="flashcard-container">
+                        <h3>Review Flashcards</h3>
+                        
+                        <div class="flashcard">
+                            <div class="flashcard-front">
+                                <h4>Half-Life</h4>
+                                <p>Click to reveal definition</p>
+                            </div>
+                            <div class="flashcard-back">
+                                <p>The time it takes for half of the atoms in a radioactive isotope to decay into a stable form.</p>
+                            </div>
+                        </div>
+                        
+                        <div class="flashcard">
+                            <div class="flashcard-front">
+                                <h4>Carbon-14 Dating</h4>
+                                <p>Click to reveal definition</p>
+                            </div>
+                            <div class="flashcard-back">
+                                <p>A method of determining the age of organic materials by measuring the amount of radioactive carbon-14 remaining in the material. Useful for materials less than 50,000 years old.</p>
+                            </div>
+                        </div>
+                        
+                        <div class="flashcard">
+                            <div class="flashcard-front">
+                                <h4>Potassium-Argon Dating</h4>
+                                <p>Click to reveal definition</p>
+                            </div>
+                            <div class="flashcard-back">
+                                <p>A dating method that uses the decay of potassium-40 to argon-40. Useful for dating rocks older than 100,000 years.</p>
+                            </div>
+                        </div>
+                        
+                        <div class="flashcard">
+                            <div class="flashcard-front">
+                                <h4>Uranium-Lead Dating</h4>
+                                <p>Click to reveal definition</p>
+                            </div>
+                            <div class="flashcard-back">
+                                <p>A dating method that uses the decay of uranium to lead. One of the oldest and most reliable methods, useful for dating rocks billions of years old.</p>
+                            </div>
+                        </div>
+                        
+                        <div class="card-navigation">
+                            <button class="btn prev-card">Previous</button>
+                            <span class="card-counter">1/4</span>
+                            <button class="btn next-card">Next</button>
+                        </div>
+                    </div>
+                    
+                    <div class="section-nav">
+                        <button class="btn" onclick="markSectionComplete('practice')">Mark as Complete</button>
+                        <button class="btn btn-secondary" onclick="switchTab('quiz')">Continue to Quiz</button>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- QUIZ TAB -->
+            <div class="tab-content" id="quiz-content">
+                <div class="content-section">
+                    <h2>Test Your Knowledge</h2>
+                    <p>Answer these questions to test your understanding of radioactive dating and decay.</p>
+                    
+                    <div class="quiz-container">
+                        <div class="quiz-question" data-correct="b">
+                            <p>1. What is half-life?</p>
+                            <div class="quiz-options">
+                                <label>
+                                    <input type="radio" name="q1" value="a">
+                                    The time it takes for all atoms in a sample to decay
+                                </label>
+                                <label>
+                                    <input type="radio" name="q1" value="b">
+                                    The time it takes for half of the atoms in a radioactive isotope to decay
+                                </label>
+                                <label>
+                                    <input type="radio" name="q1" value="c">
+                                    The time it takes for a quarter of the atoms in a sample to decay
+                                </label>
+                                <label>
+                                    <input type="radio" name="q1" value="d">
+                                    The average lifespan of a radioactive atom
+                                </label>
+                            </div>
+                        </div>
+                        
+                        <div class="quiz-question" data-correct="c">
+                            <p>2. Which dating method would be most appropriate for determining the age of a 2,000-year-old wooden artifact?</p>
+                            <div class="quiz-options">
+                                <label>
+                                    <input type="radio" name="q2" value="a">
+                                    Potassium-Argon dating
+                                </label>
+                                <label>
+                                    <input type="radio" name="q2" value="b">
+                                    Uranium-Lead dating
+                                </label>
+                                <label>
+                                    <input type="radio" name="q2" value="c">
+                                    Carbon-14 dating
+                                </label>
+                                <label>
+                                    <input type="radio" name="q2" value="d">
+                                    Rubidium-Strontium dating
+                                </label>
+                            </div>
+                        </div>
+                        
+                        <div class="quiz-question" data-correct="a">
+                            <p>3. If a radioactive isotope has a half-life of 5,000 years, how much of the original isotope will remain after 15,000 years?</p>
+                            <div class="quiz-options">
+                                <label>
+                                    <input type="radio" name="q3" value="a">
+                                    12.5%
+                                </label>
+                                <label>
+                                    <input type="radio" name="q3" value="b">
+                                    25%
+                                </label>
+                                <label>
+                                    <input type="radio" name="q3" value="c">
+                                    33.3%
+                                </label>
+                                <label>
+                                    <input type="radio" name="q3" value="d">
+                                    6.25%
+                                </label>
+                            </div>
+                        </div>
+                        
+                        <div class="quiz-question" data-correct="d">
+                            <p>4. Which of the following is NOT a requirement for radioactive dating to be reliable?</p>
+                            <div class="quiz-options">
+                                <label>
+                                    <input type="radio" name="q4" value="a">
+                                    The half-life of the isotope must be known
+                                </label>
+                                <label>
+                                    <input type="radio" name="q4" value="b">
+                                    The initial amount of parent isotope must be known or calculated
+                                </label>
+                                <label>
+                                    <input type="radio" name="q4" value="c">
+                                    The system must have remained closed (no gain or loss of parent or daughter isotopes)
+                                </label>
+                                <label>
+                                    <input type="radio" name="q4" value="d">
+                                    The sample must be at least 1 million years old
+                                </label>
+                            </div>
+                        </div>
+                        
+                        <button class="btn quiz-submit">Submit Answers</button>
+                        
+                        <div class="quiz-results"></div>
+                    </div>
+                    
+                    <div class="section-nav">
+                        <button class="btn" onclick="markSectionComplete('quiz')">Mark as Complete</button>
+                        <button class="btn btn-secondary" onclick="switchTab('game')">Continue to Game</button>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- GAME TAB -->
+            <div class="tab-content" id="game-content">
+                <div class="content-section">
+                    <h2>Radioactive Decay Quiz Show</h2>
+                    <p>Test your knowledge in this exciting quiz show format! Answer questions about radioactive dating and decay to earn points.</p>
+                    
+                    <div id="quiz-show-game" class="game-container">
+                        <!-- Game content will be loaded by JavaScript -->
+                        <p>Loading game...</p>
+                    </div>
+                    
+                    <div class="section-nav">
+                        <button class="btn" onclick="markSectionComplete('game')">Mark as Complete</button>
+                        <button class="btn btn-secondary" onclick="window.location.href='../geologic-time-scale/index.html'">Next Topic: Geologic Time Scale</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <footer>
+        <div class="footer-content">
+            <div class="footer-column">
+                <h3>Earth Science Explorer</h3>
+                <p>An interactive learning platform for 8th grade Earth Science students.</p>
+            </div>
+            <div class="footer-column">
+                <h3>Quick Links</h3>
+                <ul class="footer-links">
+                    <li><a href="../../index.html">Home</a></li>
+                    <li><a href="../geologic-history/index.html">Geologic History</a></li>
+                    <li><a href="../rock-correlation/index.html">Rock Correlation</a></li>
+                    <li><a href="../radioactive-dating/index.html">Radioactive Dating</a></li>
+                    <li><a href="../geologic-time-scale/index.html">Geologic Time Scale</a></li>
+                </ul>
+            </div>
+            <div class="footer-column">
+                <h3>Resources</h3>
+                <ul class="footer-links">
+                    <li><a href="#">Study Tips</a></li>
+                    <li><a href="#">Glossary</a></li>
+                    <li><a href="#">Reference Materials</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="copyright">
+            <p>&copy; 2025 Earth Science Explorer. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script src="../../js/main.js"></script>
+    <script src="../../games/quiz-show.js"></script>
+    <script>
+        // Initialize the Quiz Show game when the page loads
+        document.addEventListener('DOMContentLoaded', function() {
+            const gameContainer = document.getElementById('quiz-show-game');
+            if (gameContainer) {
+                initializeQuizShowGame(gameContainer);
+            }
+            
+            // Initialize tabs
+            const tabs = document.querySelectorAll('.tab');
+            tabs.forEach(tab => {
+                tab.addEventListener('click', function() {
+                    const tabId = this.getAttribute('data-tab');
+                    switchTab(tabId);
+                });
+            });
+            
+            // Initialize flashcards
+            initializeFlashcards();
+            
+            // Load progress from localStorage
+            loadProgress();
+        });
+        
+        // Explicitly define the switchTab function in this file
+        function switchTab(tabId) {
+            console.log('Switching to tab:', tabId);
+            
+            // Hide all tab contents
+            const tabContents = document.querySelectorAll('.tab-content');
+            tabContents.forEach(content => {
+                content.classList.remove('active');
+            });
+            
+            // Deactivate all tabs
+            const tabs = document.querySelectorAll('.tab');
+            tabs.forEach(tab => {
+                tab.classList.remove('active');
+            });
+            
+            // Activate selected tab and content
+            const selectedContent = document.getElementById(`${tabId}-content`);
+            const selectedTab = document.querySelector(`.tab[data-tab="${tabId}"]`);
+            
+            if (selectedContent) {
+                selectedContent.classList.add('active');
+            }
+            
+            if (selectedTab) {
+                selectedTab.classList.add('active');
+            }
+            
+            // Scroll to top of content
+            window.scrollTo({
+                top: document.querySelector('.tab-container').offsetTop - 100,
+                behavior: 'smooth'
+            });
+        }
+        
+        // Initialize flashcards functionality
+        function initializeFlashcards() {
+            const flashcardContainers = document.querySelectorAll('.flashcard-container');
+            
+            if (flashcardContainers.length === 0) return;
+            
+            flashcardContainers.forEach(container => {
+                const cards = container.querySelectorAll('.flashcard');
+                const nextBtn = container.querySelector('.next-card');
+                const prevBtn = container.querySelector('.prev-card');
+                let currentIndex = 0;
+                
+                // Show only the first card initially
+                updateCardDisplay();
+                
+                // Flip card on click
+                cards.forEach(card => {
+                    card.addEventListener('click', function() {
+                        this.classList.toggle('flipped');
+                    });
+                });
+                
+                // Next button functionality
+                if (nextBtn) {
+                    nextBtn.addEventListener('click', function() {
+                        currentIndex = (currentIndex + 1) % cards.length;
+                        updateCardDisplay();
+                    });
+                }
+                
+                // Previous button functionality
+                if (prevBtn) {
+                    prevBtn.addEventListener('click', function() {
+                        currentIndex = (currentIndex - 1 + cards.length) % cards.length;
+                        updateCardDisplay();
+                    });
+                }
+                
+                function updateCardDisplay() {
+                    cards.forEach((card, index) => {
+                        if (index === currentIndex) {
+                            card.style.display = 'block';
+                            card.classList.remove('flipped');
+                        } else {
+                            card.style.display = 'none';
+                        }
+                    });
+                    
+                    // Update counter if it exists
+                    const counter = container.querySelector('.card-counter');
+                    if (counter) {
+                        counter.textContent = `${currentIndex + 1}/${cards.length}`;
+                    }
+                }
+            });
+        }
+        
+        // Progress tracking
+        function markSectionComplete(section) {
+            // Get current progress from localStorage
+            let progress = JSON.parse(localStorage.getItem('earthScienceProgress')) || {};
+            
+            // Initialize topic progress if not exists
+            if (!progress.radioactiveDating) {
+                progress.radioactiveDating = {
+                    learn: false,
+                    practice: false,
+                    quiz: false,
+                    game: false
+                };
+            }
+            
+            // Mark section as complete
+            progress.radioactiveDating[section] = true;
+            
+            // Save to localStorage
+            localStorage.setItem('earthScienceProgress', JSON.stringify(progress));
+            
+            // Update progress display
+            updateProgressDisplay(progress.radioactiveDating);
+            
+            // Show confirmation
+            alert(`${section.charAt(0).toUpperCase() + section.slice(1)} section marked as complete!`);
+        }
+        
+        function loadProgress() {
+            // Get progress from localStorage
+            let progress = JSON.parse(localStorage.getItem('earthScienceProgress')) || {};
+            
+            // Initialize if not exists
+            if (!progress.radioactiveDating) {
+                progress.radioactiveDating = {
+                    learn: false,
+                    practice: false,
+                    quiz: false,
+                    game: false
+                };
+                localStorage.setItem('earthScienceProgress', JSON.stringify(progress));
+            }
+            
+            // Update progress display
+            updateProgressDisplay(progress.radioactiveDating);
+        }
+        
+        function updateProgressDisplay(topicProgress) {
+            // Calculate percentage
+            const sections = ['learn', 'practice', 'quiz', 'game'];
+            const completedSections = sections.filter(section => topicProgress[section]).length;
+            const percentage = Math.round((completedSections / sections.length) * 100);
+            
+            // Update progress bar
+            const progressFill = document.getElementById('progress-fill');
+            if (progressFill) {
+                progressFill.style.width = `${percentage}%`;
+            }
+            
+            // Update text
+            const progressText = document.getElementById('progress-text');
+            if (progressText) {
+                progressText.textContent = `${percentage}% Complete`;
+            }
+        }
+    </script>
+</body>
+</html>

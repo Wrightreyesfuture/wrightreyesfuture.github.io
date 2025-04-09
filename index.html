@@ -1,0 +1,443 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Earth Science Explorer | Interactive Learning for 8th Grade</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        .hero {
+            background: linear-gradient(135deg, var(--primary-color), var(--accent-color));
+            color: white;
+            padding: 80px 0;
+            text-align: center;
+            border-radius: 0 0 30px 30px;
+            margin-bottom: 50px;
+        }
+        
+        .hero h1 {
+            font-size: 3rem;
+            margin-bottom: 20px;
+            text-shadow: 0 2px 4px rgba(0,0,0,0.2);
+        }
+        
+        .hero p {
+            font-size: 1.2rem;
+            max-width: 800px;
+            margin: 0 auto 30px;
+        }
+        
+        .cta-button {
+            display: inline-block;
+            background-color: white;
+            color: var(--primary-color);
+            padding: 12px 30px;
+            border-radius: 50px;
+            font-weight: 600;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+        }
+        
+        .cta-button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 6px 15px rgba(0,0,0,0.15);
+        }
+        
+        .topics-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin-bottom: 50px;
+        }
+        
+        .topic-card {
+            background-color: white;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+            transition: all 0.3s ease;
+        }
+        
+        .topic-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+        }
+        
+        .topic-image {
+            height: 200px;
+            background-size: cover;
+            background-position: center;
+        }
+        
+        .topic-content {
+            padding: 20px;
+        }
+        
+        .topic-content h3 {
+            margin-top: 0;
+            color: var(--primary-color);
+        }
+        
+        .topic-content p {
+            color: #666;
+            margin-bottom: 20px;
+        }
+        
+        .topic-link {
+            display: inline-block;
+            color: var(--primary-color);
+            font-weight: 600;
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+        
+        .topic-link:hover {
+            color: var(--accent-color);
+        }
+        
+        .features-section {
+            background-color: #f9f9f9;
+            padding: 60px 0;
+            margin: 50px 0;
+            border-radius: 12px;
+        }
+        
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+        }
+        
+        .feature-card {
+            text-align: center;
+            padding: 30px 20px;
+        }
+        
+        .feature-icon {
+            font-size: 2.5rem;
+            color: var(--primary-color);
+            margin-bottom: 20px;
+        }
+        
+        .feature-card h3 {
+            margin-top: 0;
+            color: var(--primary-color);
+        }
+        
+        .progress-overview {
+            background-color: white;
+            border-radius: 12px;
+            padding: 30px;
+            margin-bottom: 50px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+        }
+        
+        .progress-bars {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 20px;
+            margin-top: 20px;
+        }
+        
+        .progress-item {
+            margin-bottom: 15px;
+        }
+        
+        .progress-item h4 {
+            margin-bottom: 5px;
+            display: flex;
+            justify-content: space-between;
+        }
+        
+        .progress-bar {
+            height: 10px;
+            background-color: #f0f0f0;
+            border-radius: 5px;
+            overflow: hidden;
+        }
+        
+        .progress-fill {
+            height: 100%;
+            background: linear-gradient(90deg, var(--primary-color), var(--accent-color));
+            border-radius: 5px;
+            transition: width 0.5s ease;
+        }
+        
+        @media (max-width: 768px) {
+            .hero {
+                padding: 60px 20px;
+            }
+            
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+            
+            .topics-grid, .features-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="header-content">
+            <h1 class="site-title">Earth Science Explorer</h1>
+            <p class="site-description">Interactive learning for 8th grade Earth Science</p>
+        </div>
+    </header>
+
+    <nav>
+        <div class="nav-container">
+            <a href="index.html" class="logo">EarthSci</a>
+            <ul class="nav-links">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="topics/geologic-history/index.html">Geologic History</a></li>
+                <li><a href="topics/rock-correlation/index.html">Rock Correlation</a></li>
+                <li><a href="topics/radioactive-dating/index.html">Radioactive Dating</a></li>
+                <li><a href="topics/geologic-time-scale/index.html">Geologic Time Scale</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <div class="hero">
+        <div class="container">
+            <h1>Earth Science Made Fun!</h1>
+            <p>An interactive learning platform designed to help 8th graders master Earth Science concepts through engaging content, interactive quizzes, and fun mini-games.</p>
+            <a href="#topics" class="cta-button">Start Learning</a>
+        </div>
+    </div>
+
+    <main class="container">
+        <div class="progress-overview">
+            <h2>Your Learning Progress</h2>
+            <p>Track your progress across all Earth Science topics.</p>
+            
+            <div class="progress-bars">
+                <div class="progress-item">
+                    <h4>
+                        <span>Geologic History</span>
+                        <span id="geologic-history-percent">0%</span>
+                    </h4>
+                    <div class="progress-bar">
+                        <div class="progress-fill" id="geologic-history-progress" style="width: 0%;"></div>
+                    </div>
+                </div>
+                
+                <div class="progress-item">
+                    <h4>
+                        <span>Rock Correlation</span>
+                        <span id="rock-correlation-percent">0%</span>
+                    </h4>
+                    <div class="progress-bar">
+                        <div class="progress-fill" id="rock-correlation-progress" style="width: 0%;"></div>
+                    </div>
+                </div>
+                
+                <div class="progress-item">
+                    <h4>
+                        <span>Radioactive Dating</span>
+                        <span id="radioactive-dating-percent">0%</span>
+                    </h4>
+                    <div class="progress-bar">
+                        <div class="progress-fill" id="radioactive-dating-progress" style="width: 0%;"></div>
+                    </div>
+                </div>
+                
+                <div class="progress-item">
+                    <h4>
+                        <span>Geologic Time Scale</span>
+                        <span id="geologic-time-scale-percent">0%</span>
+                    </h4>
+                    <div class="progress-bar">
+                        <div class="progress-fill" id="geologic-time-scale-progress" style="width: 0%;"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <h2 id="topics">Earth Science Topics</h2>
+        <div class="topics-grid">
+            <div class="topic-card">
+                <div class="topic-image" style="background-image: url('images/pdf/page-01.png');"></div>
+                <div class="topic-content">
+                    <h3>Geologic History</h3>
+                    <p>Explore Earth's past through rock layers, fossils, and geological features.</p>
+                    <a href="topics/geologic-history/index.html" class="topic-link">Start Learning <i class="fas fa-arrow-right"></i></a>
+                </div>
+            </div>
+            
+            <div class="topic-card">
+                <div class="topic-image" style="background-image: url('images/pdf/page-03.png');"></div>
+                <div class="topic-content">
+                    <h3>Rock Correlation</h3>
+                    <p>Discover how geologists match rock layers across different locations.</p>
+                    <a href="topics/rock-correlation/index.html" class="topic-link">Start Learning <i class="fas fa-arrow-right"></i></a>
+                </div>
+            </div>
+            
+            <div class="topic-card">
+                <div class="topic-image" style="background-image: url('images/pdf/page-07.png');"></div>
+                <div class="topic-content">
+                    <h3>Radioactive Dating</h3>
+                    <p>Learn how scientists determine the absolute age of rocks and fossils.</p>
+                    <a href="topics/radioactive-dating/index.html" class="topic-link">Start Learning <i class="fas fa-arrow-right"></i></a>
+                </div>
+            </div>
+            
+            <div class="topic-card">
+                <div class="topic-image" style="background-image: url('images/pdf/page-05.png');"></div>
+                <div class="topic-content">
+                    <h3>Geologic Time Scale</h3>
+                    <p>Explore the major divisions of Earth's 4.6 billion year history.</p>
+                    <a href="topics/geologic-time-scale/index.html" class="topic-link">Start Learning <i class="fas fa-arrow-right"></i></a>
+                </div>
+            </div>
+        </div>
+        
+        <div class="features-section">
+            <div class="container">
+                <h2 class="text-center">Interactive Learning Features</h2>
+                <div class="features-grid">
+                    <div class="feature-card">
+                        <div class="feature-icon">
+                            <i class="fas fa-book-open"></i>
+                        </div>
+                        <h3>Learn</h3>
+                        <p>Comprehensive content with visual aids to help understand complex Earth Science concepts.</p>
+                    </div>
+                    
+                    <div class="feature-card">
+                        <div class="feature-icon">
+                            <i class="fas fa-tasks"></i>
+                        </div>
+                        <h3>Practice</h3>
+                        <p>Interactive activities and flashcards to reinforce learning and improve retention.</p>
+                    </div>
+                    
+                    <div class="feature-card">
+                        <div class="feature-icon">
+                            <i class="fas fa-question-circle"></i>
+                        </div>
+                        <h3>Quiz</h3>
+                        <p>Self-assessment quizzes to test your knowledge and identify areas for improvement.</p>
+                    </div>
+                    
+                    <div class="feature-card">
+                        <div class="feature-icon">
+                            <i class="fas fa-gamepad"></i>
+                        </div>
+                        <h3>Game</h3>
+                        <p>Fun mini-games that make learning Earth Science concepts engaging and memorable.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <footer>
+        <div class="footer-content">
+            <div class="footer-column">
+                <h3>Earth Science Explorer</h3>
+                <p>An interactive learning platform for 8th grade Earth Science students.</p>
+            </div>
+            <div class="footer-column">
+                <h3>Quick Links</h3>
+                <ul class="footer-links">
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="topics/geologic-history/index.html">Geologic History</a></li>
+                    <li><a href="topics/rock-correlation/index.html">Rock Correlation</a></li>
+                    <li><a href="topics/radioactive-dating/index.html">Radioactive Dating</a></li>
+                    <li><a href="topics/geologic-time-scale/index.html">Geologic Time Scale</a></li>
+                </ul>
+            </div>
+            <div class="footer-column">
+                <h3>Resources</h3>
+                <ul class="footer-links">
+                    <li><a href="#">Study Tips</a></li>
+                    <li><a href="#">Glossary</a></li>
+                    <li><a href="#">Reference Materials</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="copyright">
+            <p>&copy; 2025 Earth Science Explorer. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script src="js/main.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Load progress from localStorage
+            loadProgress();
+        });
+        
+        function loadProgress() {
+            // Get progress from localStorage
+            let progress = JSON.parse(localStorage.getItem('earthScienceProgress')) || {};
+            
+            // Initialize if not exists
+            if (!progress.geologicHistory) {
+                progress.geologicHistory = {
+                    learn: false,
+                    practice: false,
+                    quiz: false,
+                    game: false
+                };
+            }
+            
+            if (!progress.rockCorrelation) {
+                progress.rockCorrelation = {
+                    learn: false,
+                    practice: false,
+                    quiz: false,
+                    game: false
+                };
+            }
+            
+            if (!progress.radioactiveDating) {
+                progress.radioactiveDating = {
+                    learn: false,
+                    practice: false,
+                    quiz: false,
+                    game: false
+                };
+            }
+            
+            if (!progress.geologicTimeScale) {
+                progress.geologicTimeScale = {
+                    learn: false,
+                    practice: false,
+                    quiz: false,
+                    game: false
+                };
+            }
+            
+            localStorage.setItem('earthScienceProgress', JSON.stringify(progress));
+            
+            // Update progress displays
+            updateProgressDisplay('geologic-history', progress.geologicHistory);
+            updateProgressDisplay('rock-correlation', progress.rockCorrelation);
+            updateProgressDisplay('radioactive-dating', progress.radioactiveDating);
+            updateProgressDisplay('geologic-time-scale', progress.geologicTimeScale);
+        }
+        
+        function updateProgressDisplay(topicId, topicProgress) {
+            // Calculate percentage
+            const sections = ['learn', 'practice', 'quiz', 'game'];
+            const completedSections = sections.filter(section => topicProgress[section]).length;
+            const percentage = Math.round((completedSections / sections.length) * 100);
+            
+            // Update progress bar
+            const progressFill = document.getElementById(`${topicId}-progress`);
+            progressFill.style.width = `${percentage}%`;
+            
+            // Update text
+            const progressText = document.getElementById(`${topicId}-percent`);
+            progressText.textContent = `${percentage}%`;
+        }
+    </script>
+</body>
+</html>

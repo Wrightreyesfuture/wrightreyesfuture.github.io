@@ -1,0 +1,838 @@
+/* Earth Science Tutor Website - Style Sheet */
+/* Combining MrBeast and NY Mets color schemes for an eye-popping design */
+
+:root {
+  /* MrBeast Colors */
+  --mrbeast-blue: #08B0D5;
+  --mrbeast-pink: #E3447C;
+  --mrbeast-black: #000000;
+  --mrbeast-white: #FFFFFF;
+  
+  /* NY Mets Colors */
+  --mets-blue: #002D72;
+  --mets-orange: #FF5910;
+  
+  /* Combined Color Palette */
+  --primary-color: var(--mrbeast-blue);
+  --secondary-color: var(--mets-orange);
+  --accent-color: var(--mrbeast-pink);
+  --dark-color: var(--mets-blue);
+  --light-color: var(--mrbeast-white);
+  --text-color: #333333;
+  --background-color: #f5f5f5;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Poppins', 'Roboto', sans-serif;
+  line-height: 1.6;
+  color: var(--text-color);
+  background-color: var(--background-color);
+  overflow-x: hidden;
+  text-align: center; /* Center all text by default */
+  margin: 0 auto; /* Center the body */
+  width: 100%; /* Ensure body takes full width */
+}
+
+p, h1, h2, h3, h4, h5, h6 {
+  text-align: center; /* Ensure all text elements are centered */
+  width: 100%; /* Ensure text elements take full width */
+}
+
+/* Header Styles */
+header {
+  background: linear-gradient(135deg, var(--primary-color) 0%, var(--dark-color) 100%);
+  color: var(--light-color);
+  padding: 1.5rem 0;
+  text-align: center;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  position: relative;
+  overflow: hidden;
+  width: 100%; /* Ensure header takes full width */
+}
+
+header::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: url('../images/header-bg.png') repeat;
+  opacity: 0.1;
+  z-index: 0;
+}
+
+.header-content {
+  position: relative;
+  z-index: 1;
+  margin: 0 auto; /* Center the header content */
+  width: 100%; /* Ensure header content takes full width */
+}
+
+.site-title {
+  font-size: 2.5rem;
+  margin-bottom: 0.5rem;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+  text-align: center; /* Ensure title is centered */
+}
+
+.site-description {
+  font-size: 1.2rem;
+  font-weight: 300;
+  max-width: 800px;
+  margin: 0 auto;
+  text-align: center; /* Ensure description is centered */
+}
+
+/* Navigation */
+nav {
+  background-color: var(--dark-color);
+  padding: 1rem 0;
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  width: 100%; /* Ensure nav takes full width */
+}
+
+.nav-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: flex;
+  justify-content: center; /* Center the navigation */
+  align-items: center;
+  padding: 0 2rem;
+  width: 100%; /* Ensure nav container takes full width */
+}
+
+.logo {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: var(--light-color);
+  text-decoration: none;
+  text-align: center; /* Center the logo text */
+}
+
+.nav-links {
+  display: flex;
+  list-style: none;
+  justify-content: center; /* Center the navigation links */
+  margin: 0 auto; /* Center the nav links */
+}
+
+.nav-links li {
+  margin: 0 1rem; /* Equal margin on both sides */
+}
+
+.nav-links a {
+  color: var(--light-color);
+  text-decoration: none;
+  font-weight: 500;
+  transition: color 0.3s ease;
+  position: relative;
+  text-align: center; /* Center the link text */
+}
+
+.nav-links a:hover {
+  color: var(--secondary-color);
+}
+
+.nav-links a::after {
+  content: '';
+  position: absolute;
+  bottom: -5px;
+  left: 0;
+  width: 0;
+  height: 2px;
+  background-color: var(--secondary-color);
+  transition: width 0.3s ease;
+}
+
+.nav-links a:hover::after {
+  width: 100%;
+}
+
+/* Main Content */
+.container {
+  max-width: 1200px;
+  margin: 0 auto; /* Center the container */
+  padding: 2rem;
+  text-align: center; /* Center all content in the container */
+  width: 100%; /* Ensure container takes appropriate width */
+  box-sizing: border-box; /* Include padding in width calculation */
+}
+
+.hero {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 4rem 2rem;
+  background: linear-gradient(rgba(255, 255, 255, 0.9), rgba(255, 255, 255, 0.9)), url('../images/earth-science-bg.jpg') no-repeat center center/cover;
+  border-radius: 12px;
+  margin-bottom: 3rem;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
+  width: 100%; /* Ensure hero takes full width */
+}
+
+.hero h1 {
+  font-size: 3rem;
+  color: var(--dark-color);
+  margin-bottom: 1.5rem;
+  font-weight: 800;
+  text-align: center; /* Ensure heading is centered */
+}
+
+.hero p {
+  font-size: 1.2rem;
+  max-width: 800px;
+  margin-bottom: 2rem;
+  text-align: center; /* Ensure paragraph is centered */
+}
+
+.btn {
+  display: inline-block;
+  background-color: var(--primary-color);
+  color: var(--light-color);
+  padding: 0.8rem 2rem;
+  border-radius: 50px;
+  text-decoration: none;
+  font-weight: 600;
+  transition: all 0.3s ease;
+  border: none;
+  cursor: pointer;
+  box-shadow: 0 4px 12px rgba(8, 176, 213, 0.3);
+  margin: 10px; /* Add margin to buttons for better spacing */
+  text-align: center; /* Ensure button text is centered */
+}
+
+.btn:hover {
+  background-color: var(--accent-color);
+  transform: translateY(-3px);
+  box-shadow: 0 6px 16px rgba(227, 68, 124, 0.4);
+}
+
+.btn-secondary {
+  background-color: var(--secondary-color);
+  box-shadow: 0 4px 12px rgba(255, 89, 16, 0.3);
+}
+
+.btn-secondary:hover {
+  background-color: #e64d00;
+  box-shadow: 0 6px 16px rgba(230, 77, 0, 0.4);
+}
+
+/* Topic Cards */
+.topics-section {
+  margin: 4rem auto; /* Center the section */
+  text-align: center;
+  width: 100%; /* Ensure section takes full width */
+}
+
+.section-title {
+  font-size: 2.2rem;
+  text-align: center;
+  margin-bottom: 2.5rem;
+  color: var(--dark-color);
+  position: relative;
+  width: 100%; /* Ensure title takes full width */
+}
+
+.section-title::after {
+  content: '';
+  position: absolute;
+  bottom: -10px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 80px;
+  height: 4px;
+  background: linear-gradient(to right, var(--primary-color), var(--accent-color));
+  border-radius: 2px;
+}
+
+.topics-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 2rem;
+  width: 100%; /* Ensure grid takes full width */
+  margin: 0 auto; /* Center the grid */
+}
+
+.topic-card {
+  background-color: var(--light-color);
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  text-align: center;
+  margin: 0 auto; /* Center the card */
+}
+
+.topic-card:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 12px 24px rgba(0, 0, 0, 0.15);
+}
+
+.topic-card-img {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+}
+
+.topic-card-content {
+  padding: 1.5rem;
+  text-align: center;
+}
+
+.topic-card h3 {
+  font-size: 1.5rem;
+  margin-bottom: 1rem;
+  color: var(--dark-color);
+  text-align: center; /* Ensure heading is centered */
+}
+
+.topic-card p {
+  margin-bottom: 1.5rem;
+  color: #666;
+  text-align: center; /* Ensure paragraph is centered */
+}
+
+/* Features Section */
+.features-section {
+  background-color: #f9f9f9;
+  padding: 4rem 0;
+  margin: 4rem auto; /* Center the section */
+  border-radius: 12px;
+  text-align: center;
+  width: 100%; /* Ensure section takes full width */
+}
+
+.features-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 2rem;
+  width: 100%; /* Ensure grid takes full width */
+  margin: 0 auto; /* Center the grid */
+}
+
+.feature-card {
+  background-color: var(--light-color);
+  padding: 2rem;
+  border-radius: 12px;
+  text-align: center;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+  transition: transform 0.3s ease;
+  margin: 0 auto; /* Center the card */
+}
+
+.feature-card:hover {
+  transform: translateY(-5px);
+}
+
+.feature-icon {
+  font-size: 3rem;
+  margin-bottom: 1.5rem;
+  color: var(--primary-color);
+  text-align: center; /* Ensure icon is centered */
+}
+
+.feature-card h3 {
+  font-size: 1.5rem;
+  margin-bottom: 1rem;
+  color: var(--dark-color);
+  text-align: center; /* Ensure heading is centered */
+}
+
+/* Topic Pages */
+.topic-header {
+  background: linear-gradient(135deg, var(--primary-color) 0%, var(--dark-color) 100%);
+  color: var(--light-color);
+  padding: 3rem 0;
+  text-align: center;
+  margin-bottom: 3rem;
+  border-radius: 0 0 12px 12px;
+  width: 100%; /* Ensure header takes full width */
+}
+
+.topic-header h1 {
+  font-size: 2.5rem;
+  margin-bottom: 1rem;
+  text-align: center; /* Ensure heading is centered */
+}
+
+.topic-content {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 2rem;
+  text-align: center;
+  width: 100%; /* Ensure content takes full width */
+  margin: 0 auto; /* Center the content */
+}
+
+.main-content {
+  background-color: var(--light-color);
+  padding: 2rem;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+  text-align: center;
+  width: 100%; /* Ensure content takes full width */
+  margin: 0 auto; /* Center the content */
+}
+
+.sidebar {
+  background-color: var(--light-color);
+  padding: 2rem;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+  position: sticky;
+  top: 100px;
+  height: fit-content;
+  text-align: center;
+  width: 100%; /* Ensure sidebar takes full width */
+  margin: 0 auto; /* Center the sidebar */
+}
+
+.sidebar h3 {
+  font-size: 1.5rem;
+  margin-bottom: 1.5rem;
+  color: var(--dark-color);
+  border-bottom: 2px solid var(--primary-color);
+  padding-bottom: 0.5rem;
+  text-align: center;
+}
+
+.sidebar-links {
+  list-style: none;
+  text-align: center;
+  width: 100%; /* Ensure links take full width */
+  margin: 0 auto; /* Center the links */
+}
+
+.sidebar-links li {
+  margin-bottom: 1rem;
+  text-align: center;
+}
+
+.sidebar-links a {
+  color: var(--text-color);
+  text-decoration: none;
+  transition: color 0.3s ease;
+  display: block;
+  padding: 0.5rem 0;
+  border-bottom: 1px solid #eee;
+  text-align: center;
+}
+
+.sidebar-links a:hover {
+  color: var(--primary-color);
+}
+
+/* PDF Content - Fix for images being cut off */
+.pdf-content {
+  max-width: 100%;
+  margin: 20px auto; /* Center the content */
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  overflow: visible; /* Changed from hidden to visible */
+  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+  text-align: center;
+}
+
+.pdf-content img {
+  width: 100%;
+  height: auto;
+  display: block;
+  max-width: 100%; /* Ensure image doesn't exceed container width */
+  margin: 0 auto; /* Center the image */
+  object-fit: contain; /* Ensure the entire image is visible */
+}
+
+/* Content Section */
+.content-section {
+  background-color: white;
+  border-radius: 12px;
+  padding: 30px;
+  margin: 0 auto 30px auto; /* Center the section */
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+  text-align: center; /* Center all content */
+  width: 100%; /* Ensure section takes full width */
+}
+
+/* Game Section */
+.game-section {
+  background-color: var(--light-color);
+  padding: 2rem;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+  margin: 3rem auto 0 auto; /* Center the section */
+  text-align: center;
+  width: 100%; /* Ensure section takes full width */
+}
+
+.game-container {
+  border: 2px solid var(--primary-color);
+  border-radius: 8px;
+  padding: 1rem;
+  min-height: 400px;
+  text-align: center;
+  margin: 0 auto; /* Center the game container */
+  max-width: 800px; /* Limit width for better appearance */
+  width: 100%; /* Ensure container takes appropriate width */
+}
+
+/* Footer */
+footer {
+  background-color: var(--dark-color);
+  color: var(--light-color);
+  padding: 3rem 0;
+  margin-top: 4rem;
+  text-align: center;
+  width: 100%; /* Ensure footer takes full width */
+}
+
+.footer-content {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 2rem;
+  padding: 0 2rem;
+  text-align: center;
+  width: 100%; /* Ensure content takes appropriate width */
+}
+
+.footer-column h3 {
+  font-size: 1.5rem;
+  margin-bottom: 1.5rem;
+  position: relative;
+  text-align: center;
+}
+
+.footer-column h3::after {
+  content: '';
+  position: absolute;
+  bottom: -8px;
+  left: 50%; /* Center the underline */
+  transform: translateX(-50%);
+  width: 40px;
+  height: 3px;
+  background-color: var(--secondary-color);
+}
+
+.footer-links {
+  list-style: none;
+  text-align: center;
+  width: 100%; /* Ensure links take full width */
+  margin: 0 auto; /* Center the links */
+}
+
+.footer-links li {
+  margin-bottom: 0.8rem;
+  text-align: center;
+}
+
+.footer-links a {
+  color: #ccc;
+  text-decoration: none;
+  transition: color 0.3s ease;
+  text-align: center;
+}
+
+.footer-links a:hover {
+  color: var(--secondary-color);
+}
+
+.copyright {
+  text-align: center;
+  padding-top: 2rem;
+  margin-top: 2rem;
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  font-size: 0.9rem;
+  color: #aaa;
+  width: 100%; /* Ensure copyright takes full width */
+}
+
+/* Tab Container */
+.tab-container {
+  margin: 0 auto 30px auto; /* Center the container */
+  text-align: center;
+  width: 100%; /* Ensure container takes full width */
+}
+
+.tabs {
+  display: flex;
+  border-bottom: 2px solid #f0f0f0;
+  justify-content: center; /* Center the tabs */
+  width: 100%; /* Ensure tabs take full width */
+  margin: 0 auto; /* Center the tabs */
+}
+
+.tab {
+  padding: 10px 20px;
+  cursor: pointer;
+  border-bottom: 3px solid transparent;
+  font-weight: 600;
+  transition: all 0.3s ease;
+  text-align: center;
+}
+
+.tab.active {
+  border-bottom-color: var(--primary-color);
+  color: var(--primary-color);
+}
+
+.tab-content {
+  display: none;
+  padding: 20px 0;
+  text-align: center;
+  width: 100%; /* Ensure content takes full width */
+  margin: 0 auto; /* Center the content */
+}
+
+.tab-content.active {
+  display: block;
+}
+
+/* Quiz Container */
+.quiz-container {
+  text-align: left; /* Quiz options should be left-aligned for readability */
+  max-width: 800px;
+  margin: 0 auto;
+  width: 100%; /* Ensure container takes appropriate width */
+}
+
+.quiz-question {
+  margin-bottom: 20px;
+  background-color: #f9f9f9;
+  padding: 15px;
+  border-radius: 8px;
+  width: 100%; /* Ensure question takes full width */
+}
+
+.quiz-question p {
+  text-align: left;
+  font-weight: 600;
+  margin-bottom: 10px;
+}
+
+.quiz-options {
+  display: flex;
+  flex-direction: column;
+  width: 100%; /* Ensure options take full width */
+}
+
+.quiz-options label {
+  margin: 5px 0;
+  padding: 8px;
+  border-radius: 4px;
+  transition: background-color 0.3s;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+}
+
+.quiz-options label:hover {
+  background-color: #f0f0f0;
+}
+
+.quiz-options input {
+  margin-right: 10px;
+}
+
+.quiz-submit {
+  margin-top: 20px;
+}
+
+.quiz-results {
+  margin-top: 20px;
+  padding: 15px;
+  border-radius: 8px;
+  background-color: #f0f0f0;
+  display: none;
+  width: 100%; /* Ensure results take full width */
+}
+
+/* Flashcard Container */
+.flashcard-container {
+  max-width: 600px;
+  margin: 30px auto;
+  text-align: center;
+  width: 100%; /* Ensure container takes appropriate width */
+}
+
+.flashcard {
+  perspective: 1000px;
+  height: 200px;
+  margin-bottom: 20px;
+  cursor: pointer;
+  width: 100%; /* Ensure flashcard takes full width */
+}
+
+.flashcard-front, .flashcard-back {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  backface-visibility: hidden;
+  transition: transform 0.6s;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+}
+
+.flashcard-front {
+  background-color: var(--primary-color);
+  color: white;
+}
+
+.flashcard-back {
+  background-color: white;
+  color: var(--text-color);
+  transform: rotateY(180deg);
+}
+
+.flashcard.flipped .flashcard-front {
+  transform: rotateY(180deg);
+}
+
+.flashcard.flipped .flashcard-back {
+  transform: rotateY(0);
+}
+
+.card-navigation {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 20px;
+  width: 100%; /* Ensure navigation takes full width */
+}
+
+.card-counter {
+  font-weight: 600;
+}
+
+/* Progress Tracker */
+.progress-tracker {
+  background-color: white;
+  border-radius: 12px;
+  padding: 20px;
+  margin: 0 auto 30px auto; /* Center the tracker */
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+  text-align: center;
+  width: 100%; /* Ensure tracker takes full width */
+}
+
+.progress-bar {
+  height: 10px;
+  background-color: #f0f0f0;
+  border-radius: 5px;
+  margin: 10px 0;
+  overflow: hidden;
+  width: 100%; /* Ensure bar takes full width */
+}
+
+.progress-fill {
+  height: 100%;
+  background: linear-gradient(90deg, var(--primary-color), var(--accent-color));
+  width: 25%; /* Will be updated by JavaScript */
+  border-radius: 5px;
+  transition: width 0.5s ease;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .nav-container {
+    flex-direction: column;
+    padding: 1rem;
+  }
+  
+  .logo {
+    margin-bottom: 1rem;
+  }
+  
+  .nav-links {
+    flex-direction: column;
+    width: 100%;
+    text-align: center;
+  }
+  
+  .nav-links li {
+    margin: 0.5rem 0;
+    margin-left: 0;
+  }
+  
+  .hero h1 {
+    font-size: 2.2rem;
+  }
+  
+  .topic-content {
+    grid-template-columns: 1fr;
+  }
+  
+  .sidebar {
+    position: static;
+  }
+  
+  .pdf-content img {
+    max-width: 100%; /* Ensure images are fully visible on mobile */
+  }
+}
+
+/* Animation Classes */
+.fade-in {
+  animation: fadeIn 1s ease-in-out;
+}
+
+.slide-up {
+  animation: slideUp 0.8s ease-in-out;
+}
+
+.pulse {
+  animation: pulse 2s infinite;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes slideUp {
+  from { transform: translateY(50px); opacity: 0; }
+  to { transform: translateY(0); opacity: 1; }
+}
+
+@keyframes pulse {
+  0% { transform: scale(1); }
+  50% { transform: scale(1.05); }
+  100% { transform: scale(1); }
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+::-webkit-scrollbar-track {
+  background: #f1f1f1;
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--primary-color);
+  border-radius: 5px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--accent-color);
+}
