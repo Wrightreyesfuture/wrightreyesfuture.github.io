@@ -180,6 +180,19 @@
             }
         }
     </style>
+
+<!-- THEME AUDIO BLOCK -->
+<audio id="sound-correct" src="/sounds/correct.mp3" preload="auto"></audio>
+<audio id="sound-incorrect" src="/sounds/incorrect.mp3" preload="auto"></audio>
+<audio id="sound-unlock" src="/sounds/unlock.mp3" preload="auto"></audio>
+<audio id="theme-music" src="/sounds/walking_dead_theme.mp3" preload="auto" loop></audio>
+<script>
+  window.onload = () => {
+    const music = document.getElementById("theme-music");
+    if (music) music.play();
+  };
+</script>
+
 </head>
 <body>
     <header>
